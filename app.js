@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+
+    // declare all variables
+
 const name = document.getElementById('name'); // grab the name field element
 const jobRole = document.getElementById('title'); // grab the Job Role element
 const tshirtDiv = document.getElementById('colors-js-puns'); // grab the t-shrit element
@@ -31,7 +34,27 @@ const payment = document.getElementById('payment');
 const credit = document.getElementById('credit-card');
 const payPal = document.getElementsByTagName('p')[0];
 const bitCoin = document.getElementsByTagName('p')[1];
-
+const form = document.getElementsByTagName('form')[0];
+const error = document.createElement('span');
+const error2 = document.createElement('p');
+error2.style.color = 'red';
+const nameError = 'Please enter your name.';
+const emailError = 'Please enter an email address.';
+const actError = 'Please pick one of our activites.';
+const creditError = 'Please enter a Credit Card Number.';
+const jobError = 'Please enter your Job Role.'
+const paymentError = 'Please select form of payment.';
+const zipError = 'Please enter a 5 digit zip code.'
+const creditError2 = 'Please enter a Credit Card number between 13 and 16 digits.'
+const cvvError = 'Please enter a valid cvv its the 3 digit number on the back of your card.'
+const cvvError2 = 'Please enter the three digit number on the back of your card.'
+const emailError2 = 'example: john@example.com'
+const button = document.getElementsByTagName('button')[0];
+const ccNumber = document.getElementById('cc-num');
+const zip = document.getElementById('zip');
+const cvv = document.getElementById('cvv');
+const regText = activities.children;
+error.style.color = 'red';
 
 
 
@@ -59,7 +82,7 @@ jobInput.className = 'is-hidden';
   tshirtDiv.className = 'is-hidden';
 
 tDesign.addEventListener('change',  (e) => {
-
+          // depending on selection display that menu
     if (e.target.value === 'js puns') {
       tshirtDiv.className = '';
       tColor.innerHTML = jsPuns;
@@ -159,162 +182,182 @@ payment.addEventListener('change', (e) => {
     // Form Validation
   // submit event handler.
 
-const form = document.getElementsByTagName('form')[0];
-const error = document.createElement('span');
-const nameError = 'Please enter your name.';
-const emailError = 'Please enter an email address.';
-const creditError = 'Please enter a Credit Card Number.';
-const jobError = 'Please enter your Job Role.'
-const paymentError = 'Please select form of payment.';
-const zipError = 'Please enter a valid zip code.'
-const creditError2 = 'Please enter a valid Credit Card number with at least 13 numbers.'
-const cvvError = 'Please enter a valid cvv its the 3 digit number on the back of your card.'
-const cvvError2 = 'Please enter the three digit number on the back of your card.'
-const emailError2 = 'example: john@example.com'
-const button = document.getElementsByTagName('button')[0];
-const ccNumber = document.getElementById('cc-num');
-const zip = document.getElementById('zip');
-const cvv = document.getElementById('cvv');
-const regText = activities.children;
-error.style.color = 'red';
-const filter = /^(([^<>()[]\.,;:s@"]+(.[^<>()[]\.,;:s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/;
+
 
 
     // create a validate function
 
 form.addEventListener('submit', (e) => {
-
-  function validateValue (field, text) {
+    // create a function checks for empty values and highlights the appropriate field
+  function validateValue (field) {
 
     if (field.value == "") {
-       e.preventDefault();
-       error.textContent = text;
-       field.after(error);
+       e.preventDefault(); // prevent submit when fields are empty
        field.style.borderColor = 'red';
-
     } else {
         field.style.borderColor = '';
-        error.remove();
     }
   }
 
-validateValue(name, nameError);
-validateValue(mail, emailError);
-
-
-
-//validateValue();
-
-
-
-
- // check for empty values
-  // if (activitiesCount == 0 || name.value === '' || email.value === '' || jobRole.value === 'other' ||
-  //   payment.value === 'select_method' || payment.value === 'credit card' || cvv.value ==='') {
-  //
-  //   if (name.value == "" && name.value.length > 3) {
-  //      e.preventDefault();
-  //      error.textContent = nameError;
-  //      name.after(error);
-  //      name.style.borderColor = 'red';
-  //   }
-  //   if (mail.value === '') {
-  //       e.preventDefault();
-  //       error.textContent = nameError;
-  //       name.after(error);
-  //       name.style.borderColor = 'red';
-  //   }
-  //
-  //   if (jobRole.value === 'other' && jobInput.value === '') {
-  //      e.preventDefault();
-  //      error.textContent = jobError;
-  //      jobInput.after(error);
-  //      jobInput.style.borderColor = 'red';
-  //   }
-  //
-  //   if (activitiesCount === 0) {
-  //     e.preventDefault();
-  //     alert('Please Registar for one or more of our activites.')
-  //     for (let i = 0; i < regText.length; i++) {
-  //     regText[i].style.color = 'red'
-  //    }
-  //   }
-  //
-  //   if (payment.value ==='select_method')
-  //       e.preventDefault();
-  //       error.textContent = paymentError;
-  //       payment.after(error);
-  //       payment.style.borderColor = 'red';
-  // }
-  //
-  //   if (ccNumber.value === '') {
-  //       e.preventDefault();
-  //       error.textContent = creditError;
-  //       ccNumber.after(error);
-  //       ccNumber.style.borderColor = 'red';
-  //   }
-  //
-  //   if (ccNumber.value.length < 13 || ccNumber.value.length > 16) {
-  //      e.preventDefault();
-  //      error.textContent = creditError2;
-  //      ccNumber.after(error);
-  //      ccNumber.style.borderColor = 'red';
-  //   }
-  //
-  //   if (zip.value === '' || zip.value.length !== 5 ) {
-  //      e.preventDefault();
-  //      error.textContent = zipError;
-  //      zip.after(error);
-  //      zip.style.borderColor = 'red';
-  //   }
-  //   if (cvv.value ==='') {
-  //       e.preventDefault();
-  //       error.textContent = cvvError2;
-  //       cvv.after(error);
-  //       cvv.style.borderColor = 'red';
-  //     }
-  //
-  //    if (cvv.value.length !== 3) {
-  //       e.preventDefault();
-  //       error.textContent = cvvError;
-  //       cvv.after(error);
-  //       cvv.style.borderColor = 'red';
-  //   }
+validateValue(name);
+validateValue(mail);
+validateValue(ccNumber);
+validateValue(zip);
+validateValue(cvv);
+          // checking the activities Count
+if (activitiesCount === 0) {
+  for (let i = 0; i < list.length; i++) {
+    list[i].style.color = 'red';
+}
+    e.preventDefault();
+    error2.className = '';
+    error2.textContent = actError;
+    list[0].after(error2);
+  }
+    // make sure payment method is checked
+if (payment.value === 'select_method') {
+    e.preventDefault();
+    error2.className = '';
+    error2.textContent = paymentError;
+    payment.after(error2);
+    payment.style.borderColor = 'red';
+ }
 });
+  //  add event listeners to all required fields to listen for changes after submit
 
+    // add keyup functions to name and email fields
 name.addEventListener('keyup', (e) => {
   if (e.target.value !== '' && e.target.value.length >= 3) {
-      error.remove();
+      error.className = 'is-hidden';
       e.target.style.borderColor = '';
   } else {
     e.preventDefault();
     error.textContent = 'Your name must contain at least 3 lettters';
+    error.className = '';
     name.before(error);
     name.style.borderColor = 'red';
   }
 });
 
-mail.addEventListener('change', (e) => {
-  if (e.target.value !== '' && filter.test(e.target.value)) {
+mail.addEventListener('keyup', (e) => {
+  if (e.target.value !== '' && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail.value)) {
       error.className = 'is-hidden';
-      e.target.style.borderColor = '';
+      mail.style.borderColor = '';
       return true;
   } else {
     e.preventDefault();
     error.className = '';
-    error.textContent = 'like: john@example.com';
+    error.textContent = 'like:  john@example.com';
     mail.before(error);
     mail.style.borderColor = 'red';
   }
 });
+  // add a change event to the job role.
+jobRole.addEventListener('change', (e) => {
+  if (jobRole.value === 'other' && jobInput.value === '') {
+    e.preventDefault();
+    error.className = '';
+    error.textContent = jobError;
+    jobInput.after(error);
+    jobInput.style.borderColor = 'red';
+    } else {
+    error.className = 'is-hidden';
+    jobInput.style.borderColor = '';
+  }
+});
 
-   // validating the page after the first submit
+jobInput.addEventListener('keyup', (e) => {
+  if (e.target.value.length < 3) {
+    e.preventDefault();
+    error.className = '';
+    error.textContent = jobError;
+    jobInput.after(error);
+    jobInput.style.borderColor = 'red';
+  } else {
+    error.className = 'is-hidden';
+    jobInput.style.borderColor = '';
+  }
+});
 
-// name.addEventListener('keypress', (e) => {
-//   if (name.value !== '' && name.value.length > 3) {
-//     name.style.borderColor = '';
-//   }
-//
-// });
+    // create a function to test and change the activites menu
+function valActivities (activity) {
+  activity.addEventListener('change', (e) => {
+    if (e.target.checked) {
+      for (let i = 0; i < list.length; i++) {
+        list[i].style.color = '';
+      }
+      error2.className = 'is-hidden';
+
+    } else if (activitiesCount === 0){
+      for (let i = 0; i < list.length; i++) {
+        list[i].style.color = 'red';
+      }
+      error2.className = '';
+      error2.textContent = actError;
+      list[0].after(error2);
+    }
+  })
+}
+
+valActivities(all);
+valActivities(jsFrameworks);
+valActivities(jsLibs);
+valActivities(express);
+valActivities(node);
+valActivities(buildTools);
+valActivities(npm);
+
+payment.addEventListener('change', (e) => {
+  if (e.target.value !== 'select_method') {
+    error2.className = 'is-hidden';
+    payment.style.borderColor = '';
+  } else if (e.target.value === 'select_method'){
+    error2.className = '';
+    error2.textContent = paymentError;
+    payment.after(error2);
+    payment.style.borderColor = 'red';
+  }
+});
+
+ccNumber.addEventListener('keyup', (e) => {
+
+  if (e.target.value !== '' && e.target.value.length <= 16 && e.target.value.length >= 13 && isNaN(ccNumber.value) == false) {
+        error2.className = 'is-hidden';
+        e.target.style.borderColor = '';
+
+  } else {
+        e.preventDefault();
+        error2.className = '';
+        error2.textContent = creditError2;
+        ccNumber.after(error2);
+        ccNumber.style.borderColor = 'red';
+  }
+});
+
+zip.addEventListener('keyup',  (e) => {
+    if (e.target.value !== '' && e.target.value.length === 5 && isNaN(zip.value) == false) {
+      error2.className = 'is-hidden';
+      e.target.style.borderColor = '';
+    } else {
+      e.preventDefault();
+      error2.className = '';
+      error2.textContent = zipError;
+      zip.after(error2);
+      zip.style.borderColor = 'red';
+    }
+})
+
+cvv.addEventListener('keyup', (e) => {
+  if (e.target.value !== '' && e.target.value.length === 3 && isNaN(cvv.value) == false) {
+    error2.className = 'is-hidden';
+    e.target.style.borderColor = '';
+  } else {
+    e.preventDefault();
+    error2.className = '';
+    error2.textContent = cvvError;
+    cvv.after(error2);
+    cvv.style.borderColor = 'red';
+  }
+});
 
 });
