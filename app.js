@@ -181,11 +181,7 @@ payment.addEventListener('change', (e) => {
 
     // Form Validation
   // submit event handler.
-
-
-
-
-    // create a validate function
+// create a validate function
 
 form.addEventListener('submit', (e) => {
     // create a function checks for empty values and highlights the appropriate field
