@@ -30,6 +30,7 @@ let total = 0;
 const totalText = 'Total Price = $';
 const totalNode = document.createElement('h3');
 let activitiesCount = 0;
+const select = document.getElementById('select_method');
 const payment = document.getElementById('payment');
 const credit = document.getElementById('credit-card');
 const payPal = document.getElementsByTagName('p')[0];
@@ -170,12 +171,18 @@ payment.addEventListener('change', (e) => {
     bitCoin.className = 'is-hidden';
   } else if (e.target.value === 'bitcoin'){
     payPal.className = 'is-hidden';
-    credit.className = 'is-hidden';
+    credit.className ='is-hidden';
     bitCoin.className = '';
   } else {
     credit.className = '';
     payPal.className = 'is-hidden';
     bitCoin.className = 'is-hidden';
+  }
+    // fix if select bitcoin or paypal form will submit.
+  if (e.target.value === 'bitcoin' || e.target.value === 'paypal') {
+    ccNumber.value = '11111111111111';
+    zip.value = '11111';
+    cvv.value = '111'
   }
 });
 
@@ -188,7 +195,7 @@ form.addEventListener('submit', (e) => {
   function validateValue (field) {
 
     if (field.value == "") {
-       e.preventDefault(); // prevent submit when fields are empty
+      e.preventDefault(); // prevent submit when fields are empty
        field.style.borderColor = 'red';
     } else {
         field.style.borderColor = '';
@@ -200,6 +207,20 @@ validateValue(mail);
 validateValue(ccNumber);
 validateValue(zip);
 validateValue(cvv);
+
+// fixed my errors
+if (name.value.length < 3) {
+  e.preventDefault();
+}
+if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail.value) === false) {
+  e.preventDefault();
+}
+if (jobRole.value === 'other' && jobInput.value === '') {
+  e.preventDefault()
+}
+
+
+
           // checking the activities Count
 if (activitiesCount === 0) {
   for (let i = 0; i < list.length; i++) {
@@ -218,6 +239,18 @@ if (payment.value === 'select_method') {
     payment.after(error2);
     payment.style.borderColor = 'red';
  }
+    // continue fixing errors
+ if (ccNumber.value.length < 13 || isNaN(ccNumber.value) == true || ccNumber.value.length > 16) {
+   e.preventDefault();
+ }
+ if (zip.value.length > 5 || isNaN(zip.value) == true || zip.value.length !== 5) {
+   e.preventDefault();
+ }
+
+ if (cvv.value.length > 3 || isNaN(cvv.value) == true || cvv.value.length !== 3) {
+   e.preventDefault();
+ }
+
 });
   //  add event listeners to all required fields to listen for changes after submit
 
@@ -334,7 +367,7 @@ zip.addEventListener('keyup',  (e) => {
     if (e.target.value !== '' && e.target.value.length === 5 && isNaN(zip.value) == false) {
       error2.className = 'is-hidden';
       e.target.style.borderColor = '';
-    } else {
+    } else{
       e.preventDefault();
       error2.className = '';
       error2.textContent = zipError;
