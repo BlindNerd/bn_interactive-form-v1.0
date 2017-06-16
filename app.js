@@ -50,6 +50,7 @@ const creditError2 = 'Please enter a Credit Card number between 13 and 16 digits
 const cvvError = 'Please enter a valid cvv its the 3 digit number on the back of your card.'
 const cvvError2 = 'Please enter the three digit number on the back of your card.'
 const emailError2 = 'example: john@example.com'
+const error3 = document.createElement('p');
 const button = document.getElementsByTagName('button')[0];
 const ccNumber = document.getElementById('cc-num');
 const zip = document.getElementById('zip');
@@ -227,9 +228,9 @@ if (activitiesCount === 0) {
     list[i].style.color = 'red';
 }
     e.preventDefault();
-    error2.className = '';
-    error2.textContent = actError;
-    list[0].after(error2);
+    error3.className = '';
+    error3.textContent = actError;
+    list[0].before(error3);
   }
     // make sure payment method is checked
 if (payment.value === 'select_method') {
@@ -315,15 +316,15 @@ function valActivities (activity) {
       for (let i = 0; i < list.length; i++) {
         list[i].style.color = '';
       }
-      error2.className = 'is-hidden';
+      error3.className = 'is-hidden';
 
     } else if (activitiesCount === 0){
       for (let i = 0; i < list.length; i++) {
         list[i].style.color = 'red';
       }
-      error2.className = '';
-      error2.textContent = actError;
-      list[0].after(error2);
+      error3.className = '';
+      error3.textContent = actError;
+      list[0].after(error3);
     }
   })
 }
