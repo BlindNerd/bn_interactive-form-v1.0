@@ -186,6 +186,10 @@ payment.addEventListener('change', (e) => {
     ccNumber.value = '11111111111111';
     zip.value = '11111';
     cvv.value = '111'
+  } else {
+    ccNumber.value = '';
+    zip.value = '';
+    cvv.value = '';
   }
 });
 
