@@ -249,13 +249,16 @@ if (payment.value === 'select_method') {
     // continue fixing errors
  if (ccNumber.value.length < 13 || isNaN(ccNumber.value) == true || ccNumber.value.length > 16) {
    e.preventDefault();
+   ccNumber.style.borderColor = 'red';
  }
  if (zip.value.length > 5 || isNaN(zip.value) == true || zip.value.length !== 5) {
    e.preventDefault();
+   zip.style.borderColor = 'red';
  }
 
  if (cvv.value.length > 3 || isNaN(cvv.value) == true || cvv.value.length !== 3) {
    e.preventDefault();
+   cvv.style.borderColor = 'red';
  }
 
 });
