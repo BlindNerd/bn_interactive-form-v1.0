@@ -251,7 +251,7 @@ if (payment.value === 'select_method') {
    e.preventDefault();
    ccNumber.style.borderColor = 'red';
  }
- if (zip.value.length > 5 || isNaN(zip.value) == true || zip.value.length !== 5) {
+ if (isNaN(zip.value) == true || zip.value.length !== 5) {
    e.preventDefault();
    zip.style.borderColor = 'red';
  }
