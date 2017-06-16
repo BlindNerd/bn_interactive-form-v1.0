@@ -51,6 +51,8 @@ const cvvError = 'Please enter a valid cvv its the 3 digit number on the back of
 const cvvError2 = 'Please enter the three digit number on the back of your card.'
 const emailError2 = 'example: john@example.com'
 const error3 = document.createElement('p');
+const error4 = document.createElement('p');
+error4.style.color = 'red';
 const button = document.getElementsByTagName('button')[0];
 const ccNumber = document.getElementById('cc-num');
 const zip = document.getElementById('zip');
@@ -235,9 +237,9 @@ if (activitiesCount === 0) {
     // make sure payment method is checked
 if (payment.value === 'select_method') {
     e.preventDefault();
-    error2.className = '';
-    error2.textContent = paymentError;
-    payment.after(error2);
+    error4.className = '';
+    error4.textContent = paymentError;
+    payment.after(error4);
     payment.style.borderColor = 'red';
  }
     // continue fixing errors
@@ -339,12 +341,12 @@ valActivities(npm);
 
 payment.addEventListener('change', (e) => {
   if (e.target.value !== 'select_method') {
-    error2.className = 'is-hidden';
+    error4.className = 'is-hidden';
     payment.style.borderColor = '';
   } else if (e.target.value === 'select_method'){
-    error2.className = '';
-    error2.textContent = paymentError;
-    payment.after(error2);
+    error4.className = '';
+    error4.textContent = paymentError;
+    payment.after(error4);
     payment.style.borderColor = 'red';
   }
 });
