@@ -8,12 +8,12 @@ const jobRole = document.getElementById('title'); // grab the Job Role element
 const tshirtDiv = document.getElementById('colors-js-puns'); // grab the t-shrit element
 const tDesign = document.getElementById('design');
 const tColor = document.getElementById('color');
-const jsPuns = `<option value="cornflowerblue">Cornflower Blue (JS Puns shirt only)</option>
-<option value="darkslategrey">Dark Slate Grey (JS Puns shirt only)</option>
-<option value="gold">Gold (JS Puns shirt only)</option>`
-const heartJs = `<option value="tomato">Tomato (I &#9829; JS shirt only)</option>
-<option value="steelblue">Steel Blue (I &#9829; JS shirt only)</option>
-<option value="dimgrey">Dim Grey (I &#9829; JS shirt only)</option>`
+const jsPuns = `<option value="cornflowerblue">Cornflower Blue</option>
+<option value="darkslategrey">Dark Slate Grey</option>
+<option value="gold">Gold</option>`
+const heartJs = `<option value="tomato">Tomato</option>
+<option value="steelblue">Steel Blue</option>
+<option value="dimgrey">Dim Grey</option>`
 const mail = document.getElementById('mail');
 mail.placeholder = 'john@example.com'; // add a placeholder to the email field
 const jobInput = document.getElementById('other-title'); // create the text field for the other Job Role selection
