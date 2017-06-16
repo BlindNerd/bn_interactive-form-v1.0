@@ -259,7 +259,7 @@ if (payment.value === 'select_method') {
 name.addEventListener('keyup', (e) => {
   if (e.target.value !== '' && e.target.value.length >= 3) {
       error.className = 'is-hidden';
-      e.target.style.borderColor = '';
+      e.target.style.borderColor = '#11C83E';
   } else {
     e.preventDefault();
     error.textContent = 'Your name must contain at least 3 lettters';
@@ -272,7 +272,7 @@ name.addEventListener('keyup', (e) => {
 mail.addEventListener('keyup', (e) => {
   if (e.target.value !== '' && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail.value)) {
       error.className = 'is-hidden';
-      mail.style.borderColor = '';
+      mail.style.borderColor = '#11C83E';
       return true;
   } else {
     e.preventDefault();
@@ -292,7 +292,7 @@ jobRole.addEventListener('change', (e) => {
     jobInput.style.borderColor = 'red';
     } else {
     error.className = 'is-hidden';
-    jobInput.style.borderColor = '';
+    jobInput.style.borderColor = '#11C83E';
   }
 });
 
@@ -305,7 +305,7 @@ jobInput.addEventListener('keyup', (e) => {
     jobInput.style.borderColor = 'red';
   } else {
     error.className = 'is-hidden';
-    jobInput.style.borderColor = '';
+    jobInput.style.borderColor = '#11C83E';
   }
 });
 
@@ -353,7 +353,7 @@ ccNumber.addEventListener('keyup', (e) => {
 
   if (e.target.value !== '' && e.target.value.length <= 16 && e.target.value.length >= 13 && isNaN(ccNumber.value) == false) {
         error2.className = 'is-hidden';
-        e.target.style.borderColor = '';
+        e.target.style.borderColor = '#11C83E';
 
   } else {
         e.preventDefault();
@@ -367,7 +367,7 @@ ccNumber.addEventListener('keyup', (e) => {
 zip.addEventListener('keyup',  (e) => {
     if (e.target.value !== '' && e.target.value.length === 5 && isNaN(zip.value) == false) {
       error2.className = 'is-hidden';
-      e.target.style.borderColor = '';
+      e.target.style.borderColor = '#11C83E';
     } else{
       e.preventDefault();
       error2.className = '';
@@ -380,7 +380,7 @@ zip.addEventListener('keyup',  (e) => {
 cvv.addEventListener('keyup', (e) => {
   if (e.target.value !== '' && e.target.value.length === 3 && isNaN(cvv.value) == false) {
     error2.className = 'is-hidden';
-    e.target.style.borderColor = '';
+    e.target.style.borderColor = '#11C83E';
   } else {
     e.preventDefault();
     error2.className = '';
